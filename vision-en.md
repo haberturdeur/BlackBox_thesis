@@ -3,9 +3,10 @@
 ## Idea:
 ### Library:
 #### Overview:
-* 3 modes:
+* library to interface with all harware components either directly or indirectly
+* 3 access modes:
     + direct access
-        - provides direct access to all components
+        - provides direct access to all components separately,henceforth all calculations e.g. orientation has to be done by the user
     + access through interface
         - provides access to interface class which allows to hide all data from e.g. all position sensors into "1 value"
         - pages ?
@@ -39,7 +40,7 @@
 ---
 
 ## To solve:
-* Will low level access mess with high level access? Probably yes.
+* Will low level access mode mess with high level access mode? Probably yes.
     + How do I fix this?
         - Only allow access to one level at a time.
         - Using and "redirecting" aliases. 
