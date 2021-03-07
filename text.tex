@@ -1,0 +1,81 @@
+\documentclass{template/socthesis}
+
+\usepackage[czech]{babel}
+\usepackage[T1]{fontenc} % evropské uvozovky
+\usepackage{csquotes}
+\usepackage{xpatch}
+\usepackage[author=,status=draft]{fixme} % vkládání poznámek  
+% dva módy (status): draft (poznámky se zobrazují v PDF) / final (poznámky se nezobrazují v PDF)
+
+\usepackage{subcaption}
+\usepackage[backend=bibtex,bibstyle=numeric,sorting=none,date=long,dateabbrev=false,texencoding=utf8,bibencoding=utf8,style=iso-numeric]{biblatex}
+\usepackage{amsmath}
+\usepackage{enumitem}
+
+\addbibresource{text.bib}
+
+\titlecz{SDK pro výuku programování na IoT stavebnici}
+\titleen{SDK for educational IoT kit}
+\author{Tomáš Rohlínek}
+\field{18} % Obory SOČ: 1 - 18 (http://www.soc.cz/obory-soc/)
+\school{Gymnázium Brno, třída kpt.~Jaroše}
+\mentor{Vojtěch Boček}
+\mentorstatement{Vojtěchu Bočekovi}
+
+% Změňte, pokud se liší
+%\region{Jihomoravský}
+% \placefooter{Brno 2017}
+
+\begin{document}
+	
+\maketitle
+	
+\makecopyrightstatement{V~Drásově}
+	
+\makethanks{Děkuji své školitelce doc. PhDr. Janě Novotné, Ph.D. za obětavou pomoc, podnětné připomínky a nekonečnou trpělivost, kterou mi během práce poskytovala.}
+	
+\pagestyle{empty}
+	
+\section*{Anotace}
+Cílem této práce je vytvořit univerzální dálkový ovládací pult, který se od běžně dostupných ovladačů liší tím, že umožňuje uživateli rozmístit si libovolně a v~téměř neomezeném množství ovládací prvky ze standardní nabídky modulů.
+	
+\subsection*{Klíčová slova}
+univerzální ovladač; řídicí pult; dálkové ovládání; komunikace; modulární konstrukce
+	
+\vspace{20mm}
+	
+\section*{Annotation}
+The goal of this work is to create a multi-purpose remote control console.
+Unique feature of this console is the possibility for user to place any and almost unlimited amount of operating ele-ments (from range of standard, premade modules) wherever he needs to and in any layout he wants.
+	
+\subsection*{Keywords}
+universal controller; control board; remote control; communication; modular construction
+	
+\newpage
+\pagestyle{plain}
+	
+\tableofcontents % vysází obsah
+	
+%%% Začátek práce
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\newpage
+	
+%%% Úvod
+\input{01-uvod.tex}
+
+	
+\newpage
+\printbibliography[title=Literatura]
+\addcontentsline{toc}{section}{Literatura}
+	
+\listoffigures
+\addcontentsline{toc}{section}{Seznam obrázků}
+	
+\listoftables
+\addcontentsline{toc}{section}{Seznam tabulek}
+	
+\listoflistedequation
+\addcontentsline{toc}{section}{Seznam rovnic}
+	
+\end{document}
