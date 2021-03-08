@@ -3,6 +3,10 @@
 
 [[English version follows]](#english-version)
 
+## PDF
+
+Aktuální verze pdf je vždy dostupná jako artifact v GH actions
+
 ## Vize
 
 2 části:
