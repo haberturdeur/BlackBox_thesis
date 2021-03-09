@@ -30,3 +30,28 @@ Aktuální verze hardware (v1.1) obsahuje následující funkční bloky:
             \item Barometr
         \end{itemize}
 \end{itemize}
+
+\newpage
+\subsection{Hlavní řídící modul}
+Hlavní řídící modul slouží jako výpočetní a řídící centrum celé desky.
+
+\subsubsection{ESP32}
+BlackBox používá ESP32-WROVER jako svůj procesor.
+Základní informace:
+\begin{itemize}
+    \item Dual core
+    \item 240 MHz
+    \item 4MB flash
+    \item 8MB PSRAM
+    \item WiFi, Bluetooth
+\end{itemize}
+
+\subsection{Uživatelské rozhraní}
+
+\subsubsection{Touchpad}
+Touchpad je postavený na čipu LDC1614 a jeho alternativách.\footnote{Použitelné jsou pouze alternativy se 4 kanály t.j. ty co mají tvar LDCXX14}
+Pro měření stisku se využívá deformace kovové destičky a indukčního měření její vzdálenosti od 4 plošných cívek.
+\fxnote{Tady se dá potenciálně napsat spousta věcí :D}
+
+\subsubsection{LED kruh}
+Kruh sestává z 60 adresovatelných RGB LED diod typu WS2812B.
