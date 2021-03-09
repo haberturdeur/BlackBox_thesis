@@ -25,7 +25,7 @@
 
 \setlength{\intextsep}{5mm} % nastavení mezery okolo obrázků
 \marginparsep=15pt
-\linespread{1.3}
+\linespread{1.2}
 \unitlength=1mm % nastavení volby jednotek
 
 %%%%%% ROVNICE
