@@ -1,0 +1,23 @@
+Před dvěma lety na příměstském táboře jsme potřebovali narychlo nachystat výrobek, který bychom mohli s dětmi po dobu tábora vyrábět a následně programovat. A tak jsme ze starých výukových arduino modulů a narychlo vymodelovaných dílů seskládali první sejf.
+<insert photo here!>
+Nutno podotknou, že účastníci byli na spodním okraji našeho věkového limitu a byli naprostými nováčky do světa robotiky, všechny nás překvapili svými výslednými výrobky. Naše nadšení nad tímto zjištěním a potřeba vytvářet komplikované hry a hlavolamy dala za vznik prvnímu BlackBoxu.
+<insert ordinary black box picture here>
+Dobrý den, jmenuji se Tomáš Rohlínek jsem studen SPŠ Sokolské a druhým rokem spoluvedu kroužky na Robotárně.
+
+Od začátku jsme měli na BlackBox několik požadavků, některé vzešli od nás samotných jiné přišli jako zpětná vazba od netechnických vedoucích.
+Požadavky vychází ze dvou účelů pro které byl BlackBox stvořen, těmi jsou:
+Výuka programování programování od naprostých začátků po pokročilé systémy IoT a Tvorba jednoduchých, ale i komplexních her, které budou opakovaně použitelné lidmi s minimálními technickými znalostmi.
+
+<Improv?>
+Pro účely výuky to byla hlavně její univerzálnost musí být jednoduchá, ne však za cenu omezení možností. Dále také její instalace nesměla být náročná.
+
+Co se týče tvorby her, šlo hlavně o nachystání jednoduchých šablon pro tvorbu základních her.
+Jako dodatečný cíl bylo také zvoleno vytvoření jakési databáze her obsahující všechny informace potřebné k jejich aplikaci.
+
+Pro interakci s uživatelem a prostředím je BlackBox vybaven několika periferiemi, nejnázornější a nejzajímavější jsou bezpochyby dotyková destička a kruh inteligentních LED na přední straně.
+Za zmínku stojí také senzory polohy, které umožňují 9-osou orientaci v prostoru.
+<\Improv?>
+
+Knihovna je psaná v jazyce C++, využívá však primárně API esp-idf, které je psané v jazyce C, pro usnadnění práce jsem vytvořil dvě knihovny, které vytváří přemostění mezi těmito prostředími a to knihovnu pro I2C a knihovnu pro správu FreeRTOS úloh.
+
+Knihovna využívá se dá použít jako celek prostřednictvím Manager třídy, která používá singleton šablonu.
