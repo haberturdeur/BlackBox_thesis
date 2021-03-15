@@ -20,4 +20,4 @@ Za zmínku stojí také senzory polohy, které umožňují 9-osou orientaci v pr
 
 Knihovna je psaná v jazyce C++, využívá však primárně API esp-idf, které je psané v jazyce C, pro usnadnění práce jsem vytvořil dvě knihovny, které vytváří přemostění mezi těmito prostředími a to knihovnu pro I2C a knihovnu pro správu FreeRTOS úloh.
 
-Knihovna využívá se dá použít jako celek prostřednictvím Manager třídy, která používá singleton šablonu.
+Knihovna využívá se dá použít jako celek prostřednictvím Manager třídy, která používá singleton šablonu. Usnadňuje inicializaci a nastavení všech periferií.
