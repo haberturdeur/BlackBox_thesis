@@ -64,10 +64,10 @@ auto& link = pm.newPage(new Page::Sequence(sqA));
 auto& link2 = pm.newPage(new Page::Sequence(sqR));
 mainPage[15].link(link); // switch kontextu se vždy provede jako poslední event
 mainPage[15].appendEvent(Events::Blink);
-mainPage[15].lock(lock, UNLOCKED, INVERT);
+mainPage[15].lock(lock, INVERT);
 
 mainPage[30].link(link2);
-mainPage[30].lock(lock, LOCKED, NORMAL);
+mainPage[30].lock(lock, NORMAL);
 
 link.onSolve([&]{
     remoteLatch.unlock();
