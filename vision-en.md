@@ -9,21 +9,9 @@
         - provides direct access to all components separately,henceforth all calculations e.g. orientation has to be done by the user
     + access through interface
         - provides access to interface class which allows to hide all data from e.g. all position sensors into "1 value"
-        - pages ?
-            - menu styled interface for LEDRing and RE (RotaryEncoder)
-            - each page contains color scheme and 60 callbacks capable of referencing and switching to other pages
-                - possible optional use of "button/variable" instead of callback
-    + event based access
-        - provides the interface with addition of registration of callback functions for different events that may occur
-        - events are considered to be the main driving element
-        - ESP-IDF event / Free RTOS queue ? 
-
 #### Structure:
 * Manager
     + component classes (Rtc, accel, etc.)
-    + event handling class
-    + interface
-        - page handling class ?
 ---
 ### Engine:
 #### Overview:
@@ -36,13 +24,22 @@
     + different types of "puzzles" e.g. time gate, location(GPS), orientation, password, more complex puzzles
 
 #### Structure
-<!-- FIXME: put structure here --> 
+* Locking
+    + Latches
+        - simple unlocking conditions e.g. time latch, location latch, slave latch (controlled from elsewhere)
+    + Locks
+        - sets of latches, all, or some latches have to be unlocked for the lock to unlock
+        - lock a specific event callback from being called
+    + Bariers
+        - sets of latches, all, or some latches have to be unlocked for the lock to unlock
+        - blocks any progress until unlocked
+* Events
+    + eventpp
+        - dispatcher = synchronous events
+    + lockable using locks
+* Pages
+    + Menus
+        - 60 * (RGB + events(single click, double click, hold,...))
+    + Apps
+        - One purpose app (compass, combination lock)
 ---
-
-## To solve:
-* Will low level access mode mess with high level access mode? Probably yes.
-    + How do I fix this?
-        - Only allow access to one level at a time.
-        - Using and "redirecting" aliases. 
-        - Don't care, let users deal with it.
-        - Something else?
