@@ -1,12 +1,45 @@
-Před dvěma lety jsme na příměstském táboře potřebovali nachystat výrobek, který bychom mohli s dětmi vyrábět a programovat. Ze starých výukových arduino modulů a narychlo vymodelovaných dílů jsme seskládali první sejf.
-<insert photo here!>
-Účastníci byli naprostými nováčky ve světě robotiky, přesto mě překvapili svými výslednými výrobky. Společně vytvořené komplikované hry a hlavolamy daly za vznik prvnímu BlackBoxu.
-<insert ordinary black box picture here>
-Dobrý den, jmenuji se Tomáš Rohlínek a jsem studen SPŠ Sokolské a jsem autorem práce na téma SDK pro výuku programování na IoT stavebnici.
+Vážená poroto, vážení spolu účastníci.
+
+Dobrý den, jmenuji se Tomáš Rohlínek studuji SPŠ a VOŠ Sokolskou a jsem autorem práce s názvem Software pro BlackBox.
+
+První otázka, která přijde na mysl je nepochybně co to vlastně ten BlackBox je?
+To celkem záleží na tom kdo jste.
+Pokud jste součástí mojí cílové skupiny, tak je pro vás BlackBox opravdu jen krabičku do které na dvě kliknutí nahrajete cool hru z webu a poté vydáte hráčům...
+Pokud jste učitel nebo vedoucí kroužku s vazbou na informatiku jako já, tak je pro vás BlackBox interaktivní pomůckou do výuky.
+No a pokud jste já, je pro vás BlackBox několik stovek hodin střídaní nadšení nad tím že TO jede a frustrace nad tím že To nejede, a hlavně hledání důvodů proč to nejede.
+
+<Framework>
+
+<\Framework>
+
+<>
+
+
+<Ending>
+Je důležité říci že BlackBox není ani zdaleka hotový a to jak po stránce softwaru tak po stránce hardwaru.
+Troufnu si říct že BlackBox je pouze na začátku své cesty.
+
+/ není na záčátku, má obrovský potenciál....
+
+Do budoucna se BlackBox neobejde bez jednoduchého grafického editoru pro hry, který umožní tvorbu her i běžným vedoucím netechnických kroužků a táborů.
+
+Dále chci v závislosti na  vývoji hardwaru rozšiřovat možnosti softwaru o další periferie.
+Jako první přijde na řadu modul A9, který přidá GPS a GPRS společně s druhým procesorem.
+
+Co se Engine části týče, připravuje se systém který by umožňoval autonomní decentralizovanou synchronizaci programů v jednotlivých BlackBoxech díky mesh technologii, secure boot a OTA.
+
+Další prostor pro růst je mezi hrami, kterých nikdy nebude dostatek.
+
+A samozřejmě jakmile skončí aktuální situace tak realizace her samotných
+<\Ending>
+
+<Old>
 
 Od začátku jsme měli na BlackBox několik požadavků, některé vzešli od nás samotných jiné přišli jako zpětná vazba od netechnických vedoucích.
 Požadavky vychází ze dvou účelů pro které byl BlackBox stvořen, těmi jsou:
 Výuka programování programování od naprostých začátků po pokročilé systémy IoT a Tvorba jednoduchých, ale i komplexních her, které budou opakovaně použitelné lidmi s minimálními technickými znalostmi.
+
+Software pro BlackBox sestává ze dvou hlavních částí. Knihovny pro práci s hardwarem, která slouží primárně pro výuku programování a Herního enginu, který je použitelný pro jednoduchou tvorbu her.
 
 <Improv?>
 Pro účely výuky to byla hlavně její univerzálnost musí být jednoduchá, ne však za cenu omezení možností. Dále také její instalace nesměla být náročná.
@@ -18,9 +51,38 @@ Pro interakci s uživatelem a prostředím je BlackBox vybaven několika perifer
 Za zmínku stojí také senzory polohy, které umožňují 9-osou orientaci v prostoru.
 <\Improv?>
 
-Knihovna je psaná v jazyce C++, využívá však primárně API esp-idf, které je psané v jazyce C, pro usnadnění práce jsem vytvořil dvě knihovny, které vytváří přemostění mezi těmito prostředími a to knihovnu pro I2C a knihovnu pro správu FreeRTOS úloh.
+Knihovna je psaná v jazyce C++, využívá však primárně API esp-idf psané v jazyce C.
 
 Knihovna využívá se dá použít jako celek prostřednictvím Manager třídy, která používá singleton šablonu. Usnadňuje inicializaci a nastavení všech periferií.
 
 Dá se také pracovat přímo s jednotlivými periferiemi.
 
+Třída pro čtení dat z touchpadu využívá pro svou práci třídu LDC, která se stará o komunikaci s čipem LDC1614.
+Somotný touchpad se stará o přepočítávání dat z LDC do kartézských a polárních souřadnic a aplikovaného tlaku.
+
+Pro ovládání kruhu LED se používá třída Ring ta ovládá pomocí RMT periferie na esp32 60 RGB led.
+
+Abych mohl šetřit energii a zvýšit tak dobu provozu, při zachování času i v přírodě kde není přístup k internetu, používám modul RTC přítomný na desce BlackBox, ten má velmi malou spotřebu a je napájen i když je zbytek desky vyplý. Knihovna pro jeho obsluhu zároveň umožňuje synchronizaci s interními hodinami esp ale i servery NTP.
+
+Periferie zámku je určená především pro herní účely, kde umožní zamčít BlackBox v k tomu určeném protikusu.
+Zároveň lze také zamykat nahrávání přes USB, což je vhodné pokud používáte BlackBox jako herní prvek a nechcete aby měli hráči možnost přehrát jeho kód.
+
+K oběma částem softwaru BlackBox je dostupná česko-anglická dokumentace vytvářená v jazyce Doxygen.
+Ale také ukázky kódu k jednotlivým periferiím a příklady her.
+
+Na závěr bych chtěl poděkovat JCMM a jihomoravskému kraji za finanční podporu, DDM helceletova za zprostředkování celé práce a především svému vedoucím Vojtěchu Bočkovi za jeho vytrvalou podporu.
+
+<Notes>
+
+Co je BlackBox?
+Tom V. Hardware
+Více detailů o softwaru
+Použití
+
+Vývýjel jsem software pro:....
+Vývýjel jsme pomocí pio na takové úrovni...
+Jak se to programuje?
+
+Killer app nakonci (do budoucna, kam až je to schopné dojít)
+
+Celé předělat!!!

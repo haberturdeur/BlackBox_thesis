@@ -75,10 +75,11 @@ Tento mechanismus byl navrhnut za účelem ochrany BlackBox proti neautorizovan�
 \section{Senzory prostředí}
 
 \subsection{Senzory polohy}
-Tato sada senzorů (akcelerometr, gyroskop, magnetometr) je na různých verzích desky realizována různým způsobem, \fxerror{Až Tom odpoví}.
+Tato sada senzorů (akcelerometr, gyroskop, magnetometr) je na různých verzích desky realizována různým způsobem, na verzi 1.0 je realizován jedním čipep obsahujícím všechny tři senzory, ale na verzi 1.1 je realizován pomocí dvou čipů (akcelerometr + gyroskop a magnetometr)\footnote{Verze 1.1 je zpětně kompatibilní takže se na ni dá osadit i čip z verze 1.0, toho je však v době psaní této práce nedostatek a proto byl nahrazen na verzi 1.1 za dva běžnější čipy.}.
 Knihovna však musí podporovat všechny možnosti.
 Tyto senzory zjišťují natočení BlackBoxu v prostoru v 9ti osách.
 Do budoucna se chystá rozšíření o GPS senzor. 
 
 \subsection{Barometr}
 Barometr zde slouží hlavně k hrubému měření výšky na které se BlackBox nachází.
+Případně se také dá použít jako primitivní způsob předpovědi počasí.

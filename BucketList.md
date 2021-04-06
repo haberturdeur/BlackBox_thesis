@@ -1,0 +1,1 @@
+* každý hráč je prvek -> simulace chem vazeb

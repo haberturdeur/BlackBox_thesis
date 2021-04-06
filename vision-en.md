@@ -77,5 +77,47 @@ mainPage[45].link(pm["secondary"]);
 
 pm.start();
 
+
+bbConfig cfg;
+cfg.ledMax = 100;
+bbSetup(cfg);
+
+bbCircle(Rgb(255,255,255));
+
+bbLock();
+sleep(1000);
+if(bbRotationUp())
+    bbUnlock();
+
+bbShowDirection(North);
+
+
+pages.newPage("main");
+pages.newPage("secondary");
+pages["main"][15].link(pages["secondary"]);
+// Propojí stránku 2 na pozici 15 na hlavní stránce
+pages["main"][15].color(Rgb(0, 0, 255));
+
+pages.newPage("main");
+pages.newApp(navigation, "navigation");
+pages["main"][15].link(pages["navigation"]);
+// Propojí aplikaci navigace na pozici 15 na hlavní stránce
+pages["main"][15].color(Rgb(0, 0, 255));
+pages["navigation"].setHeading(15); // azimut 15 stupňů
+
+
+BlackBox::LDC ldc;
+BlackBox::Touchpad touchpad;
+ldc.init();
+
+
+BlackBox::Coords data = touchpad.calculate(ldc);
+
+print("x: ", data.x);
+print("y: ", data.y);
+print("tlak: ", data.pressure);
+
+
+
 ```
 ---
