@@ -1,7 +1,48 @@
 \chapter{Hardwarové knihovny}
 Hardwarové knihovny jsou nejnižší částí BlackBoxu.
 Každá knihovna obsluhuje nějakou periferii a~slouží k~interakci s~ní.
-Hardwarové knihovny jsou rozdělené\footnote{Pouze v~tomto textu, v~kódu toto rozdělení není.} do několika částí:
+Hardwarové knihovny jsou rozdělené\footnote{Pouze v~tomto textu, v~kódu toto rozdělení není.} do několika částí, které budou popsané dále v textu (každá odrážka představuje jednu knihovnu):
+
+\begin{itemize}[noitemsep]
+    \item Hlavní řídící modul
+          \begin{itemize}[noitemsep]
+              \item Real Time Clock
+          \end{itemize}
+    \item Uživatelské rozhraní
+          \begin{itemize}[noitemsep]
+              \item Touchpad
+                    \begin{itemize}[noitemsep]
+                        \item LDC
+                    \end{itemize}
+              \item LED kruh
+          \end{itemize}
+    \item Zámek
+          \begin{itemize}[noitemsep]
+              \item Zámek
+              \item IR komunikace
+          \end{itemize}
+    \item Senzory prostředí
+          \begin{itemize}[noitemsep]
+              \item Senzory polohy
+                    \begin{itemize}[noitemsep]
+                        \item Magnetometr
+                        \item Akcelerometr
+                        \item Gyroskop
+                    \end{itemize}
+              \item Barometr
+          \end{itemize}
+\end{itemize}
+
+
+\begin{figure}[h]
+    \begin{small}
+        \begin{center}
+            \includegraphics[width=0.95\textwidth]{img/manager.png}
+        \end{center}
+        \caption{Závislosti hardwarových knihoven}
+        \label{fig:hLibs}
+    \end{small}
+\end{figure}
 
 \section{Hlavní řídící modul}
 

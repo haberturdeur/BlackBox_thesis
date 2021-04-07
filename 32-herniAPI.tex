@@ -1,6 +1,6 @@
 \chapter{Herní API}
-Tato část knihovny byla naprogramována za účelem jednoduché tvorby komplexních outdoorových her.
-Toho se snaží dosáhnout velkou modulárností a~zaměření na objektovost.
+Tato část softwaru byla naprogramována za účelem jednoduché tvorby komplexních outdoorových her.
+Toho se snaží dosáhnout velkou modulárností a~zaměřením na objektovost.
 
 \section{Stránky}
 
@@ -24,7 +24,7 @@ Do aplikace se dá jednoduše naprogramovat, cokoliv bude uživatel vyžadovat, 
     \item Navigace
     \item Logické hádanky
     \item Hodiny
-    \item A~mnoho dalších\dots
+    \item A~mnoho dalších \dots
 \end{itemize}
 
 \section{Zamykání}
@@ -40,7 +40,7 @@ Některé mohou být vázané na některý z~senzorů prostředí, například O
 
 Dalším příkladem může být Time Interval Latch, která se odemče v~případě, že aktuální čas je v~definovaném rozsahu.
 
-Kromě senzorů však může být Latch potřeba ovládat také z~jiných částí kódu, nebo dokonce z~úplně jiného zařízení,k~tomu slouží Remote Latch.
+Kromě senzorů však může být Latch potřeba ovládat také z~jiných částí kódu, nebo dokonce z~úplně jiného zařízení, k~tomu slouží Remote Latch.
 
 \subsection{Lock}
 
@@ -49,13 +49,55 @@ Mezi tyto typy patří například:
 \begin{itemize}
     \item All -- AND
     \item None -- NAND
-    \item AtLeast(n) - alespoň n Latch musí být odemčeno
-    \item Weighted(x) - Každé latch je přiřazena váha, součet vah odemčených Latch potom musí být >= x
-    \item A~další\dots
+    \item AtLeast(n) -- alespoň n Latch musí být odemčeno
+    \item Weighted(x) -- Každé latch je přiřazena váha, součet vah odemčených Latch potom musí být >= x
+    \item A~další \dots
 \end{itemize}
 Lock také může být vložen do dalšího Lock objektu.
 
+\begin{figure}[H]
+    \begin{small}
+        \begin{center}
+            \includegraphics[width=0.95\textwidth]{img/lock.png}
+        \end{center}
+        \caption{Idea zámku}
+        \label{fig:lock}
+    \end{small}
+\end{figure}
+
+\newpage
+
 \section{Příklady použití}
+
+\lstinputlisting[language=C++, caption=Ukázka propojování stránek]{code/pageSimple.cpp}
+
+\begin{figure}[H]
+    \begin{small}
+        \begin{center}
+            \includegraphics[width=0.95\textwidth]{img/pageLink.png}
+        \end{center}
+        \caption{Vizualizace výsledku ukázky propojování stránek}
+        \label{fig:pageLink}
+    \end{small}
+\end{figure}
+
+\newpage
+
+\lstinputlisting[language=C++, caption=Ukázka propojování aplikací]{code/appSimple.cpp}
+
+\begin{figure}[H]
+    \begin{small}
+        \begin{center}
+            \includegraphics[width=0.95\textwidth]{img/appLink.png}
+        \end{center}
+        \caption{Vizualizace výsledku ukázky propojování aplikací}
+        \label{fig:appLink}
+    \end{small}
+\end{figure}
+
+\newpage
+
+\lstinputlisting[language=C++, caption=Ukázka práce s herním API]{code/page.cpp}
 
 Pro potřeby této práce je \textbf{synchronní hra} taková hra k~jejímuž hraní je potřeba interakce hráčů v~reálném čase ať už s~"prostředím", nebo mezi sebou.
 \textbf{Asynchronní} je poté hra, která nevyžaduje interakce v~reálném čase.
