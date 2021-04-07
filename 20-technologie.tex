@@ -2,7 +2,7 @@
 
 \section{Framework}
 
-Pro vývoj na microcontroller ESP32 se používájí hlavně dva frameworky a to ESP-IDF\cite{ESP-IDF} a Arduino\cite{arduino} oba jsou pro jazyk C/C++.
+Pro vývoj na microcontroller ESP32 se používájí hlavně dva frameworky a to ESP-IDF\cite{ESP-IDF} a Arduino\cite{arduino}, oba jsou pro jazyk C/C++.
 
 \subsection{ESP-IDF}
 
@@ -30,13 +30,13 @@ Samozřejmě existují i další frameworky, kupříkladu MicroPython\cite{uPyth
 Pro BlackBox jsem se rozhodl použít přímo ESP-IDF.
 K tomuto rozhodnutí mě vedl fakt, že moje knihovna bude sloužit jako úroveň abstrakce, tudíž Arduino mezivrstva je v podstatě zbytečná, zároveň tím získám lepší kontrolu nad ESP32.
 Protiargumentem by mohlo být množství knihoven dostupných pro Arduino.
-Bohužel tyto knihovny nedodržují žádný společný rámec a většina z nich není uzpůsobena pro práci na více jádrových procesorech jakým ESP32 je.\footnote{Nejsou thread safe}
+Bohužel tyto knihovny nedodržují žádný společný rámec a většina z nich není uzpůsobena pro práci na více jádrových procesorech, jakým ESP32 je.\footnote{Nejsou thread safe.}
 
 \section{Použité knihovny}
 
 \begin{itemize}
-    \item SmartLeds -
-        Knihovna pro interakci s chytrými led WS2812 pomocí hardwarové periferie na ESP32.
-    \item Eventpp -
+    \item SmartLeds --
+        Knihovna pro interakci s chytrými led WS2812 pomocí hardwarové periferie na ESP32. %todo odkazy, zdroje
+    \item Eventpp --
         Knihovna pro jednoduchou práci s událostmi
 \end{itemize}
