@@ -1,7 +1,7 @@
 \chapter{Hardwarové knihovny}
 Hardwarové knihovny jsou nejnižší částí softwaru.
 Každá knihovna obsluhuje nějakou periferii a~slouží k~interakci s~ní.
-Hardwarové knihovny jsou rozdělené\footnote{Pouze v~tomto textu, v~kódu toto rozdělení není.} do několika částí, které budou popsané dále v textu (každá odrážka představuje jednu knihovnu):
+Hardwarové knihovny jsou rozdělené.\footnote{Pouze v~tomto textu, v~kódu toto rozdělení není.}do několika částí, které budou popsané dále v textu (každá odrážka představuje jednu knihovnu):
 
 \begin{itemize}[noitemsep]
     \item Hlavní řídící modul
@@ -51,7 +51,7 @@ Součástí hlavního modulu je samotný řídící čip ESP32 a RTC.
 \subsection{RTC}\label{ss:rtc}
 
 RTC slouží k~uchování času při šetření baterie tím, že umožňuje uspání zbytku BlackBoxu.
-Stejně jako ostatní I$^2$C periferie\footnote{T.j. RTC, LDC, barometr, senzory polohy.} používá RTC virtuální dvojče tzn. že v~programu existuje kopie všech registrů, běžný uživatel pak pracuje pouze s~touto kopií, která se periodicky synchronizuje a~provádí přitom kontrolu nastavovaných hodnot.
+Stejně jako ostatní I$^2$C periferie.\footnote{T.j. RTC, LDC, barometr, senzory polohy.}používá RTC virtuální dvojče tzn. že v~programu existuje kopie všech registrů, běžný uživatel pak pracuje pouze s~touto kopií, která se periodicky synchronizuje a~provádí přitom kontrolu nastavovaných hodnot.
 Toto urychluje kontrolu nastavovacích registrů a~zároveň zjednodušuje potenciální tvorbu simulátoru.
 Pokročilejší uživatelé mohou pracovat přímo s~jednotlivými registry a~dvojče používat pouze na rychlou kontrolu hodnot.
 
@@ -88,7 +88,7 @@ Je zodpovědná za přepočet surových dat z~LDC do souřadnic doteku a~jeho s�
 
 Třída LDC se stará o~komunikaci s~čipem LDC1614.
 Sama nedělá žádné výpočty, dělá pouze základní filtraci dat.
-Jedná se o~I$^2$C senzor\footnote{Používá virtuální dvojče.~\autoref{ss:rtc}.}.
+Jedná se o~I$^2$C senzor.\footnote{Používá virtuální dvojče.~\autoref{ss:rtc}.}
 
 \subsection{LED kruh}
 
@@ -97,7 +97,7 @@ LED kruh poskytuje kromě příjemného subscript operátoru pro přístup k~jed
 Umožňuje také nastavit maximální hodnotu jasu displeje, všechny barvy jsou poté vyškálovány do tohoto rozsahu.
 Za použití akcelerometru je také možné displej převracet v~závislosti na jeho natočení, jak je zvykem u~mobilních telefonů.
 
-LED kruh je postaven na knihovně SmartLeds\cite{SmartLeds}.
+LED kruh je postaven na knihovně SmartLed \cite{SmartLeds}.
 
 \section{Zámek}
 
@@ -111,7 +111,7 @@ Důležitý je fakt, že zámek je designovaný tak, aby se BlackBox dal vložit
 
 \subsection{IR komunikace}
 
-IR komunikace je určená k~jednoduché komunikaci mezi BlackBox a~Chytrými zády\footnote{Protikus BlackBoxu s~vlastní elektronikou.}.
+IR komunikace je určená k~jednoduché komunikaci mezi BlackBox a~Chytrými zády.\footnote{Protikus BlackBoxu s~vlastní elektronikou.}
 
 
 \section{Senzory prostředí}

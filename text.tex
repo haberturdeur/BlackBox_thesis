@@ -77,24 +77,45 @@
 
 \makecopyrightstatement{V~Drásově}
 
-\makethanks{Děkuji svému školiteli Vojtěchu Bočkovi.}
-\fxfatal{Dopsat poděkování}
+\makethanks{Děkuji svému školiteli Vojtěchu Bočkovi za obětavou pomoc, podnětné připomínky a~trpělivost, kterou mi během práce poskytoval.}
+
 
 \pagestyle{empty}
+\enlargethispage{20mm}
 
 \section*{Anotace}
-Cílem této práce je vytvořit SDK pro práci a~výuku na IoT stavebnici BlackBox postavené na platformě ESP32.
+Cílem této práce je vytvoření SDK pro práci a~výuku na IoT stavebnici BlackBox postavené na platformě ESP32. Toto SDK se skládá ze tří částí: 
+
+Hardwarové knihovny, které umožňují práci s jednotlivými periferiemi BlackBoxu 
+a umožňují plně využít všech jeho možností. 
+
+Výukové rozhraní slouží k podpoře výuky programování, speciálně na poli hobby robotiky. 
+ 
+Herní rozhraní pro snadnou uživatelskou práci s BlackBoxem -- umožňuje jednoduše naprogramovat do BlackBoxu vlastní hry a nebo nahrát do něj hry už hotové. 
+
+Také byla sepsána dokumentace k tomuto software v českém a anglickém jazyce. 
+
+
 
 \subsection*{Klíčová slova}
-BlackBox; IoT; softwarové knihovny; C/C++; ESP32; zážitkové akce
+BlackBox; IoT; API; SDK; C/C++; ESP32; zážitková akce; hry; mikrokontrolér
 
-\vspace{20mm}
+% \vspace{10mm}
 
 \section*{Annotation}
-\fxfatal{překlad}
+The aim of this thesis is to create an SDK for development and education on IoT kit BlackBox built on the ESP32 platform. This SDK consists of three parts:
+
+Hardware libraries which allow you to work with individual BlackBox peripherals,
+as well as allow you to take full advantage of its capabilities.
+
+The educational API is used to enhance programming teaching, especially in the field of hobby robotics.
+ 
+Game API which gives user easy approach to BlackBox -- allows you to easily program your own games into the BlackBox or load pre-made games.
+
+Documentation for this software was also written in Czech and English.
 
 \subsection*{Keywords}
-BlackBox; IoT; software libraries; C/C++; ESP32; adventures
+BlackBox; IoT; API; SDK; C/C++; ESP32; adventure; games; microcontroller
 
 \newpage
 \pagestyle{plain}
@@ -154,7 +175,7 @@ BlackBox; IoT; software libraries; C/C++; ESP32; adventures
     \clearpage
     \phantomsection
 
-    \includepdf[pagecommand=\addcontentsline{toc}{section}{Zpráva o využití BlackBoxu}, page=1]{Socka-BlackBox-pouzitelnost.pdf}
+    \includepdf[pagecommand=\thispagestyle{empty} \addcontentsline{toc}{section}{Zpráva o využití BlackBoxu}, page=1]{Socka-BlackBox-pouzitelnost.pdf}
     \includepdf[page=2]{Socka-BlackBox-pouzitelnost.pdf}
 \end{appendices}
 
