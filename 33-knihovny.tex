@@ -1,5 +1,5 @@
 \chapter{Hardwarové knihovny}
-Hardwarové knihovny jsou nejnižší částí BlackBoxu.
+Hardwarové knihovny jsou nejnižší částí softwaru.
 Každá knihovna obsluhuje nějakou periferii a~slouží k~interakci s~ní.
 Hardwarové knihovny jsou rozdělené\footnote{Pouze v~tomto textu, v~kódu toto rozdělení není.} do několika částí, které budou popsané dále v textu (každá odrážka představuje jednu knihovnu):
 
@@ -94,7 +94,7 @@ Jedná se o~I$^2$C senzor\footnote{Používá virtuální dvojče.~\autoref{ss:r
 
 % ? Should I~write about 2.0?
 LED kruh poskytuje kromě příjemného subscript operátoru pro přístup k~jednotlivým LED také možnost vykresloval celé obrazce (kružnice a~oblouky).
-Umožňuje také nastavit maximální hodnotu displeje, všechny barvy jsou poté vyškálovány do tohoto rozsahu.
+Umožňuje také nastavit maximální hodnotu jasu displeje, všechny barvy jsou poté vyškálovány do tohoto rozsahu.
 Za použití akcelerometru je také možné displej převracet v~závislosti na jeho natočení, jak je zvykem u~mobilních telefonů.
 
 LED kruh je postaven na knihovně SmartLeds\cite{SmartLeds}.
@@ -122,8 +122,8 @@ Množství funkcionality poskytuje BlackBoxu možnost detekovat natočení v~9~o
 
 \section{Příklady použití}
 
-Hardwarové knihovny mají asi nejširší možnosti použití.
-Dvěma z~nich mohou být i~herní a~výukové API.
+Hardwarové knihovny zajišťují nízkoúrovňový přístup k celému BB, takže pokročilí uživatelé mohou plně využít možnosti hardwaru.
+Knihovny tvoří základ pro herní a výukové API, které existují jako další vrstva abstrakce pro jednodušší programování BB.
 
 Knihovny se nemusí používat pouze v~rámci desky BlackBox, ale také mimo ni jako samostatné knihovny.
 Kupříkladu LED kruh se dá použít na řízení jakéhokoliv displeje, který má imitovat ručičkové ukazatele.

@@ -14,6 +14,8 @@
 \usepackage{xcolor}
 \usepackage{listings}
 \usepackage{float}
+\usepackage{pdfpages}
+\usepackage[toc,page]{appendix}
 
 % \newfloat{code}{thph}{section}
 % \floatname{code}{Ukázka kódu}
@@ -52,6 +54,9 @@
 \def\lstlistingname{Ukázka kódu}
 \def\lstlistlistingname{Seznam ukázek kódu}
 
+\def\appendixpagename{Přílohy}
+\def\appendixtocname{Přílohy}
+
 \addbibresource{text.bib}
 
 \titlecz{Software pro BlackBox}
@@ -78,10 +83,10 @@
 \pagestyle{empty}
 
 \section*{Anotace}
-Cílem této práce je vytvořit SDK pro práci a~výuku na IoT stavebnici BlackBox postavené na platformě ESP32.\fxfatal{odkaz}
+Cílem této práce je vytvořit SDK pro práci a~výuku na IoT stavebnici BlackBox postavené na platformě ESP32.
 
 \subsection*{Klíčová slova}
-BlackBox; IoT; \fxnote{další buzz slovíčka}
+BlackBox; IoT; softwarové knihovny; C/C++; ESP32; zážitkové akce
 
 \vspace{20mm}
 
@@ -89,7 +94,7 @@ BlackBox; IoT; \fxnote{další buzz slovíčka}
 \fxfatal{překlad}
 
 \subsection*{Keywords}
-\fxfatal{překlad}
+BlackBox; IoT; software libraries; C/C++; ESP32; adventures
 
 \newpage
 \pagestyle{plain}
@@ -120,12 +125,7 @@ BlackBox; IoT; \fxnote{další buzz slovíčka}
 
 \input{100-zaver.tex}
 
-\newpage
-\printbibliography[title=Literatura]
-\addcontentsline{toc}{section}{Literatura}
 
-\listoffigures
-\addcontentsline{toc}{section}{Seznam obrázků}
 
 % \listoftables
 % \addcontentsline{toc}{section}{Seznam tabulek}
@@ -133,7 +133,29 @@ BlackBox; IoT; \fxnote{další buzz slovíčka}
 % \listoflistedequation
 % \addcontentsline{toc}{section}{Seznam rovnic}
 
-\lstlistoflistings
-\addcontentsline{toc}{section}{\lstlistlistingname}
+
+
+\begin{appendices}
+    \newpage
+
+    \printbibliography[title=Literatura]
+    \addcontentsline{toc}{section}{Literatura}
+
+    \listoffigures
+    \addcontentsline{toc}{section}{Seznam obrázků}
+
+    \lstlistoflistings
+    \addcontentsline{toc}{section}{\lstlistlistingname}
+    
+    
+    \begin{figure}
+        ~ 
+    \end{figure}
+    \clearpage
+    \phantomsection
+
+    \includepdf[pagecommand=\addcontentsline{toc}{section}{Zpráva o využití BlackBoxu}, page=1]{Socka-BlackBox-pouzitelnost.pdf}
+    \includepdf[page=2]{Socka-BlackBox-pouzitelnost.pdf}
+\end{appendices}
 
 \end{document}

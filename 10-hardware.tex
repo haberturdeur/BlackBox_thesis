@@ -57,8 +57,8 @@ Základní informace:
 \end{itemize}
 
 \subsection{Real Time Clock}
-Kvůli snížení spotřeby energie bylo implementováno několik mechanismů
-Jeden z~těchto mechanismů je i~vypínání všech nepotřebných periferií a~uspání ESP32.V~takovém případě ale není možné uchovat aktuální čas, proto byl na BlackBox přidán modul RTC, ten je napájen přímo z~baterií a~není tak závislý na zbytku BlackBoxu.
+Kvůli snížení spotřeby energie bylo implementováno několik mechanismů.
+Jeden z~těchto mechanismů je i~vypínání všech nepotřebných periferií a~uspání ESP32. V~takovém případě ale není možné uchovat aktuální čas, proto byl na BlackBox přidán modul RTC, ten je napájen přímo z~baterií a~není tak závislý na zbytku BlackBoxu.
 
 \section{Uživatelské rozhraní}
 
@@ -68,7 +68,9 @@ Pro měření stisku se využívá deformace kovové destičky a~indukčního m�
 \fxnote{Tady se dá potenciálně napsat spousta věcí :D}
 
 \subsection{LED kruh}
-Kruh sestává z~60~adresovatelných RGB LED diod typu WS2812B.
+Kruh sestává z~60~adresovatelných RGB LED diod typu WS2812B\footnote{Z vlastní zkušenosti mohu prohlásit, že s RGB Led děti rádi pracují a ani po týdnu práce se jich nenabaží.}.
+Číslo 60 bylo vybráno záměrně, kvůli hodinám, zároveň se tímto číslem bez problémů dělí kružnice kompasu.
+
 
 \section{Zámek}
 
@@ -81,12 +83,14 @@ Tato identifikace by se potenciálně dala dělat pomocí senzorů prostředí, 
 
 \subsection{Zámek sériové linky}
 Tento mechanismus byl navrhnut za účelem ochrany BlackBox proti neautorizovanému přepsání softwaru.
+Jedná se o přepínač na desce BlackBoxu, který odpojuje napájení USB převodníku a je v zamčeném stavu nedostupný.
 
 \section{Senzory prostředí}
 
 \subsection{Senzory polohy}
 Tato sada senzorů (akcelerometr, gyroskop, magnetometr) je na různých verzích desky realizována různým způsobem, na verzi 1.0~je realizována jedním čipem obsahujícím všechny tři senzory, ale na verzi 1.1~je realizována pomocí dvou čipů (akcelerometr + gyroskop a~magnetometr)\footnote{Verze 1.1~je zpětně kompatibilní, takže se na ni dá osadit i~čip z~verze 1.0, toho je však v~době psaní této práce nedostatek a~proto byl nahrazen na verzi 1.1 dvěma běžnějšími čipy.}.
 Knihovna však musí podporovat všechny možnosti.
+
 Tyto senzory zjišťují natočení BlackBoxu v~prostoru v~9ti osách.
 Do budoucna se chystá rozšíření o~GPS senzor.
 

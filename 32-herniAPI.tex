@@ -1,6 +1,6 @@
 \chapter{Herní API}
-Tato část softwaru byla naprogramována za účelem jednoduché tvorby komplexních outdoorových her.
-Toho se snaží dosáhnout velkou modulárností a~zaměřením na objektovost.
+Tato část softwaru je programována za účelem jednoduché tvorby komplexních outdoorových her.
+Toho se snaží dosáhnout velkou modulárností a~zaměřením na principy OOP.
 
 \section{Stránky}
 
@@ -8,7 +8,7 @@ Pro vytváření jednoduchých her a~uživatelsky přívětivých menu je implem
 
 \subsection{Page}
 
-Stránka je soubor barev jednotlivých pozic na displeji společně s~akcemi při jejich zvolení, nebo při jiné události.
+Stránka je soubor barev jednotlivých pozic na displeji (LED kruh) společně s~akcemi při jejich zvolení, nebo při jiné události\footnote{Zatřesení BlackBoxem, povel z případné nadřazené jednotky \dots}.
 Prováděné akce jsou uživatelem definované funkce.
 Pro pohodlnost je však implementováno několik základních akcí, například blikání.
 
@@ -18,7 +18,8 @@ Přehození kontextu na jinou stránku je vždy poslední provedená akce vyvola
 
 \subsection{App}
 
-Aplikace je jednoúčelová věc zapadající do systému stránek, chová se vlastně jako speciální Page.
+Aplikace je jednoúčelový podprogram zapadající do systému stránek, chová se vlastně jako speciální Page.
+Zatímco page je statická (v průběhu kódu se zásadně nemění), aplikace je velmi dynamická.
 Do aplikace se dá jednoduše naprogramovat, cokoliv bude uživatel vyžadovat, kupříkladu:
 \begin{itemize}
     \item Navigace
@@ -36,11 +37,11 @@ Primárně však tento systém funguje inhibitor událostí a~přepínání mezi
 \subsection{Latch}
 Latch je zamykací primitivum.
 Každý typ Latch má jinou odemykacím/zamykací podmínku.
-Některé mohou být vázané na některý z~senzorů prostředí, například Orientation Latch nastavený na sever se odemče v~případě, že je nulová pozice namířena na sever v~rámci 3$^{\circ}$ tolerance\footnote{$\frac{360^{\circ}}{60~led~*~2~strany}$}.
+Mohou být vázané na některý z~senzorů prostředí, Orientation latch lze nastavit, aby k odemknutí vyžadoval otočení BlackBoxu čelem k severu, což zjistí díky zabudovanému magnetometru.
 
-Dalším příkladem může být Time Interval Latch, která se odemče v~případě, že aktuální čas je v~definovaném rozsahu.
+Dalším příkladem může být Time Interval Latch, která se odemkne v~případě, že aktuální čas je v~definovaném rozsahu.
 
-Kromě senzorů však může být Latch potřeba ovládat také z~jiných částí kódu, nebo dokonce z~úplně jiného zařízení, k~tomu slouží Remote Latch.
+Kromě senzorů však může být Latch ovládán také z~jiných částí kódu, nebo dokonce z~úplně jiného zařízení, k~tomu slouží Remote Latch.
 
 \subsection{Lock}
 
@@ -49,8 +50,8 @@ Mezi tyto typy patří například:
 \begin{itemize}
     \item All -- AND
     \item None -- NAND
-    \item AtLeast(n) -- alespoň n Latch musí být odemčeno
-    \item Weighted(x) -- Každé latch je přiřazena váha, součet vah odemčených Latch potom musí být >= x
+    \item AtLeast(n) -- alespoň n Latch musí být odemkneno
+    \item Weighted(x) -- Každé latch je přiřazena váha, součet vah odemknených Latch potom musí být >= x
     \item A~další \dots
 \end{itemize}
 Lock také může být vložen do dalšího Lock objektu.
@@ -99,6 +100,8 @@ Lock také může být vložen do dalšího Lock objektu.
 
 \lstinputlisting[language=C++, caption=Ukázka práce s herním API]{code/page.cpp}
 
+\newpage
+
 Pro potřeby této práce je \textbf{synchronní hra} taková hra k~jejímuž hraní je potřeba interakce hráčů v~reálném čase ať už s~"prostředím", nebo mezi sebou.
 \textbf{Asynchronní} je poté hra, která nevyžaduje interakce v~reálném čase.
 
@@ -114,12 +117,12 @@ Cílem je vypnout všechny světla.
 
 Pro efekt je lepší hrát tuto hru v~noci.
 Každý hráč má svůj BlackBox.
-V~prostoru jsou rozmístěny pouzdra pro BlackBox v~předem daných polohách.
+V~prostoru jsou rozmístěny zad pro BlackBox v~předem daných polohách.
 V~závislosti na věku hráčů, herním čase a~dostupné prostoru může být herní plocha rozlehlá i~několik set metrů.
 Je několik počátečních pozic.
 
 Každý hráč má vygenerované bludiště, kde cesty jsou definované jako spojnice mezi BlackBoxy (toto bludiště se může autonomně měnit v~průběhu hry).
-Když hráč dojde na stanoviště a~zasune svůj BlackBox do pouzdra na stanovišti, zobrazí se mu možné směry, kterými se může vydat.
+Když hráč dojde na stanoviště a~zasune svůj BlackBox do zad na stanovišti, zobrazí se mu možné směry, kterými se může vydat.
 Hráč si jeden z~nich vybere a~BlackBox mu začne ukazovat přímou spojnici ke stanovišti v~daném směru.
 Pokud hráč sejde z~originální přímé spojnice, může si opravit směr na jakémkoliv dalším stanovišti.
 

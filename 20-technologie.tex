@@ -2,11 +2,11 @@
 
 \section{Framework}
 
-Pro vývoj na microcontroller ESP32 se používájí hlavně dva frameworky a~to ESP-IDF\cite{ESP-IDF} a Arduino\cite{arduino}, oba jsou pro jazyk C/C++.
+Pro vývoj na microcontroller ESP32 se používají hlavně dva frameworky a~to ESP-IDF\cite{ESP-IDF} a Arduino\cite{arduino}, oba jsou pro jazyk C/C++.
 
 \subsection{ESP-IDF}
 
-ESP-IDF, nebo také Espressif IoT Development Framework je oficiální framework od výrobce ESP32, firmy Espressif Systems\cite{espressif}.
+ESP-IDF, nebo také Espressif IoT Development Framework, je oficiální framework od výrobce ESP32, firmy Espressif Systems\cite{espressif}.
 Je psaný pro vývoj v~jazyce C a~C++, samotný je psaný v~jazyce C.
 Obsahuje několik úrovní abstrakce od přímé práce s~registry pro uživatelsky přívětivé API.
 
@@ -17,7 +17,7 @@ Obsahuje několik úrovní abstrakce od přímé práce s~registry pro uživatel
 \subsection{Arduino}
 
 Arduino je pro začátečníka jednoduší na pochopení a~na práci než ESP-IDF, protože funguje jako úroveň abstrakce nad ESP-IDF.
-Jeho obrovskou předností a~zároveň jeho největší limitací je jeho kompatibilita pro množství naprosto rozličných platforem a~architektur sahající až po 8-bitové mikročipy ATtiny.~Bohužel stabilní vývojová větev Arduina pro ESP32 používá zastaralou verzi ESP-IDF, která má některá omezení, kupříkladu nepodporuje C++ 17.
+Jeho obrovskou předností a~zároveň jeho největší limitací je jeho kompatibilita pro množství naprosto rozličných platforem a~architektur sahající až po 8-bitové mikročipy ATtiny.~Bohužel stabilní vývojová větev Arduina pro ESP32 používá zastaralou verzi ESP-IDF, která má některá omezení, kupříkladu nepodporuje C++~17.
 
 \lstinputlisting[language=C++, caption=Arduino]{code/arduino.cpp}
 
@@ -31,12 +31,13 @@ Pro BlackBox jsem se rozhodl použít přímo ESP-IDF.
 K~tomuto rozhodnutí mě vedl fakt, že moje knihovna bude sloužit jako úroveň abstrakce, tudíž Arduino mezivrstva je v~podstatě zbytečná, zároveň tím získám lepší kontrolu nad ESP32.
 Protiargumentem by mohlo být množství knihoven dostupných pro Arduino.
 Bohužel tyto knihovny nedodržují žádný společný rámec a~většina z~nich není uzpůsobena pro práci na více jádrových procesorech, jakým ESP32 je.\footnote{Nejsou thread safe.}
+Zároveň toto umožní zpětnou kompatibilitu s oběma frameworky.
 
 \section{Použité knihovny}
 
 \begin{itemize}
     \item SmartLeds \cite{SmartLeds} --
-        Knihovna pro interakci s chytrými led WS2812 pomocí hardwarové periferie na ESP32. % fixme odkazy, zdroje
+        Knihovna pro interakci s chytrými led WS2812 pomocí hardwarové periferie RMT na ESP32. % fixme odkazy, zdroje
     \item Eventpp --
-        Knihovna pro jednoduchou práci s událostmi
+        Knihovna pro jednoduchou práci s událostmi.
 \end{itemize}
