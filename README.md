@@ -1,11 +1,9 @@
 # BlackBox firmware
 [Hardware by Tomáš Vavrinec]()
 
-[[English version follows]](#english-version)
-
 ## PDF
 
-Aktuální verze pdf je vždy dostupná jako artifact v GH actions
+Aktuální verze pdf je vždy dostupná [zde](https://files.gwenlian.eu/BlackBox.pdf).
 
 ## Vize
 
